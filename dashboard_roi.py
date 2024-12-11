@@ -4,7 +4,11 @@ import matplotlib.pyplot as plt
 import locale
 
 # Imposta il formato delle cifre
-locale.setlocale(locale.LC_ALL, 'it_IT.UTF-8')
+import locale
+
+def format_currency(value):
+    return locale.format_string("%.2f", value, grouping=True).replace(',', '.').replace('.', ',')
+
 
 # Funzione per calcolare il ROI
 def calcola_roi(costo_iniziale, costi_ricorrenti, incremento_vendite, risparmi_annuali, anni):
